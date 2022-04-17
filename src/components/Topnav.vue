@@ -30,7 +30,7 @@ export default {
   display: flex;
   padding: 16px;
   position: relative;
-  z-index: 10;
+  z-index: 20;
 
   > .logo {
     display: inline-block;
