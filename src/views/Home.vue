@@ -6,7 +6,7 @@
       <h2>一个 UI 框架</h2>
       <p class="actions">
         <a href="">GitHub</a>
-        <a href="">起步</a>
+        <router-link to="/doc">起步</router-link>
       </p>
     </div>
   </div>
