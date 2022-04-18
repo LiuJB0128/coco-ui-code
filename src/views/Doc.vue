@@ -50,9 +50,9 @@ $aside-index: 10;
 
   > .content {
     flex-grow: 1;
-    padding-top: 60px;
-    padding-left: 156px;
-    @media (max-width: 500px) {
+    //padding-top: 60px;
+    padding-left: 150px;
+    @media (max-width: 720px) {
       padding-left: 0;
     }
   }
@@ -66,9 +66,10 @@ $aside-index: 10;
   }
 
   > main {
+    background: lightyellow;
     flex-grow: 1;
     padding: 16px;
-    background: white;
+    //background: white;
   }
 }
 
