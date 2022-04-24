@@ -1,5 +1,6 @@
 <template>
-  <button class="coco-button" :class="classes">
+  <button class="coco-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="coco-loadingIndicator"></span>
     <slot/>
   </button>
 </template>
@@ -15,14 +16,27 @@ export default {
     size: {
       type: String,
       default: 'normal'
+    },
+    level: {
+      type: String,
+      default: 'normal'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
-    const {theme, size} = props;
+    const {theme, size, level} = props;
     const classes = computed(() => {
       return {
         [`coco-theme-${theme}`]: theme,
-        [`coco-size-${size}`]: size
+        [`coco-size-${size}`]: size,
+        [`coco-level-${level}`]: level,
       };
     });
     return {classes};
@@ -189,7 +203,7 @@ $grey: grey;
     border-color: $blue $blue $blue transparent;
     border-style: solid;
     border-width: 2px;
-    animation: gulu-spin 1s infinite linear;
+    animation: coco-spin 1s infinite linear;
   }
 }
 
