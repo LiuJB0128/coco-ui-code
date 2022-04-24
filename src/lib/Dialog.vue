@@ -4,12 +4,11 @@
     <div class="coco-dialog-wrapper">
       <div class="coco-dialog">
         <header>
-          标题
+          <slot name="title" />
           <span @click="close" class="coco-dialog-close"></span>
         </header>
         <main>
-          <p>1</p>
-          <p>2</p>
+          <slot name="content" />
         </main>
         <footer>
           <Button level="main" @click="ok">OK</Button>
