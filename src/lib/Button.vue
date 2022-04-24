@@ -1,15 +1,31 @@
 <template>
-  <button class="coco-button" :class="`coco-theme-${theme}`">
+  <button class="coco-button" :class="classes">
     <slot/>
   </button>
 </template>
 <script lang="ts">
+import {computed} from 'vue';
+
 export default {
   props: {
     theme: {
       type: String,
       default: 'button'
+    },
+    size: {
+      type: String,
+      default: 'normal'
     }
+  },
+  setup(props) {
+    const {theme, size} = props;
+    const classes = computed(() => {
+      return {
+        [`coco-theme-${theme}`]: theme,
+        [`coco-size-${size}`]: size
+      };
+    });
+    return {classes};
   }
 };
 </script>
@@ -177,7 +193,7 @@ $grey: grey;
   }
 }
 
-@keyframes gulu-spin {
+@keyframes coco-spin {
   0% {
     transform: rotate(0deg)
   }
