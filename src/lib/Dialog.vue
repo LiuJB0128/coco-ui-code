@@ -1,19 +1,19 @@
 <template>
   <template v-if="visible">
-    <div class="coco-dialog-overlay"></div>
+    <div class="coco-dialog-overlay" @click="onClickOverlay"></div>
     <div class="coco-dialog-wrapper">
       <div class="coco-dialog">
         <header>
           标题
-          <span class="coco-dialog-close"></span>
+          <span @click="close" class="coco-dialog-close"></span>
         </header>
         <main>
           <p>1</p>
           <p>2</p>
         </main>
         <footer>
-          <Button level="main">OK</Button>
-          <Button>Cancel</Button>
+          <Button level="main" @click="ok">OK</Button>
+          <Button @click="cancel">Cancel</Button>
         </footer>
       </div>
     </div>
@@ -27,9 +27,41 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true
+    },
+    ok: {
+      type: Function
+    },
+    cancel: {
+      type: Function
     }
   },
-  components: {Button}
+  components: {Button},
+  setup(props, context) {
+    const close = () => {
+      context.emit('update:visible', false);
+    };
+    const onClickOverlay = () => {
+      if (props.closeOnClickOverlay) {
+        close();
+      }
+    };
+    const ok = () => {
+      if (props.ok?.() !== false) (
+          close()
+      );
+    };
+    const cancel = () => {
+      context.emit('cancel');
+      close();
+    };
+    return {
+      close, onClickOverlay, ok, cancel
+    };
+  }
 };
 </script>
 <style lang="scss">
