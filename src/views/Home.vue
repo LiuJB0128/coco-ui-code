@@ -28,6 +28,7 @@ export default {
   align-items: center;
   flex-direction: column;
   background: lightgreen;
+  clip-path: ellipse(80% 60% at 50% 40%);
 
   > .actions {
     padding: 8px 0;
