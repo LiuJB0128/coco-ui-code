@@ -11,8 +11,7 @@ export default {
   name: 'App',
   setup() {
     const width = document.documentElement.clientWidth;
-    // noinspection RedundantConditionalExpressionJS
-    const asideVisible = ref(width <= 720 ? false : true);
+    const asideVisible = ref(width > 720);
     provide('asideVisible', asideVisible);
     router.afterEach(() => {
       if (width <= 720) {

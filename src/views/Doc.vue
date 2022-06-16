@@ -1,8 +1,8 @@
 <template>
   <div class="layout">
-    <Topnav class="nav"/>
+    <Topnav toggleMenuButtonVisible class="nav"/>
     <div class="content">
-      <aside v-if="asideVisible">
+      <aside :class="{visible:!asideVisible}">
         <h2>组件列表</h2>
         <ol>
           <li>
@@ -49,9 +49,10 @@ $aside-index: 10;
   }
 
   > .content {
+    width: 100%;
     flex-grow: 1;
     //padding-top: 60px;
-    padding-left: 150px;
+    //padding-left: 150px;
     @media (max-width: 720px) {
       padding-left: 0;
     }
@@ -76,17 +77,25 @@ $aside-index: 10;
 aside {
   background: lightblue;
   width: 150px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 70px 0 16px;
+  padding: 16px 0 16px;
   height: 100%;
   z-index: $aside-index;
+  @media (max-width: 720px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 75px 0 16px;
+    transform: translateX(-100%);
+    transition: transform .2s ease;
+    &.visible {
+      transform: translateX(0px);
+    }
+  }
 
   > h2 {
     margin-bottom: 4px;
     padding: 0 16px;
-    white-space:nowrap;
+    white-space: nowrap;
   }
 
   > ol {
