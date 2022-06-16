@@ -1,7 +1,11 @@
 <template>
   <div class="topnav">
     <span class="toggleAside" @click="toggleMenu"></span>
-    <div class="logo">LOGO</div>
+    <div class="logo">
+      <svg class="icon">
+        <use xlink:href="#icon-coconut"></use>
+      </svg>
+    </div>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
