@@ -63,11 +63,6 @@ $aside-index: 10;
   > .content {
     width: 100%;
     flex-grow: 1;
-    //padding-top: 60px;
-    //padding-left: 150px;
-    @media (max-width: 720px) {
-      padding-left: 0;
-    }
   }
 }
 
