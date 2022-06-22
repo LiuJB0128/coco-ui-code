@@ -74,7 +74,7 @@ $aside-index: 10;
   }
 
   > main {
-    background: lightyellow;
+    background: #fff;
     flex-grow: 1;
     padding: 16px;
     //background: white;
