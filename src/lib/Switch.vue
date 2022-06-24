@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="coco-switch" @click="toggle" :class="{'coco-checked':value}">
+    <button class="coco-switch" @click="toggle" :class="{'coco-checked':value}" :disabled="disabled">
       <span/>
     </button>
   </div>
@@ -10,6 +10,10 @@
 export default {
   props: {
     value: Boolean,
+    disabled: {
+      type: Boolean,
+      default: false
+    },
   },
   setup(props, context) {
     const toggle = () => {
@@ -66,6 +70,10 @@ $h2: $h - 4px;
       width: $h2 + 4px;
       margin-left: -4px;
     }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
   }
 }
 </style>
