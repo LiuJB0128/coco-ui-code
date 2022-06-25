@@ -6,23 +6,16 @@
   </div>
 </template>
 <script lang="ts">
-import Button from '../lib/Button.vue';
-import {ref} from 'vue';
 import Switch1Demo from './Switch1.demo.vue';
 import Switch2Demo from './Switch2.demo.vue';
-import Prism from 'prismjs';
-import 'prismjs/themes/prism-solarizedlight.css';
-import Demo from './Demo.vue'
+import Demo from './Demo.vue';
 
 export default {
-  components: {Button, Demo},
+  components: {Demo},
   setup() {
-    const bool = ref(false);
     return {
-      bool,
       Switch1Demo,
-      Switch2Demo,
-      Prism
+      Switch2Demo
     };
   }
 };
@@ -59,7 +52,8 @@ $border-color: #d9d9d9;
       margin: 0;
     }
   }
-  .language-html{
+
+  .language-html {
     background: #f5f7fa;
   }
 }
