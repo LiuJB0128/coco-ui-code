@@ -74,6 +74,10 @@ $h2: $h - 4px;
 
   &[disabled] {
     cursor: not-allowed;
+
+    &.coco-checked {
+      opacity: 0.5;
+    }
   }
 }
 </style>

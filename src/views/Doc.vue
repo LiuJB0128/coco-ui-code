@@ -77,12 +77,11 @@ $aside-index: 10;
     background: #fff;
     flex-grow: 1;
     padding: 16px;
-    //background: white;
   }
 }
 
 aside {
-  background: lightblue;
+  background: #ffffff;
   width: 150px;
   padding: 16px 0 16px;
   height: 100%;
@@ -111,10 +110,15 @@ aside {
         display: block;
         padding: 4px 16px;
         text-decoration: none;
+
+        &:hover {
+          color: #40a9ff;
+        }
       }
 
       .router-link-active {
-        background: white;
+        background: #ecf5ff;
+        color: #40a9ff;
       }
     }
   }

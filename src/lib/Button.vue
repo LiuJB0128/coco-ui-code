@@ -49,8 +49,8 @@ $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
-$red: red;
-$grey: grey;
+$red: #f56c6c;
+$grey: #b0b2b7;
 .coco-button {
   box-sizing: border-box;
   height: $h;
@@ -176,22 +176,9 @@ $grey: grey;
     }
   }
 
-  &.coco-theme-button {
-    &[disabled] {
-      cursor: not-allowed;
-      color: $grey;
-
-      &:hover {
-        border-color: $grey;
-      }
-    }
-  }
-
-  &.coco-theme-link, &.coco-theme-text {
-    &[disabled] {
-      cursor: not-allowed;
-      color: $grey;
-    }
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 
   > .coco-loadingIndicator {
