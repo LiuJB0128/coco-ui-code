@@ -3,12 +3,17 @@
     <Topnav/>
     <div class="banner">
       <svg class="icon">
-        <use xlink:href="#icon-a-Coconuttree"></use>
+        <use xlink:href="#icon-yezishu"></use>
       </svg>
       <h1>Coco UI</h1>
       <h2>一个有点好看的 UI 框架</h2>
       <p class="actions">
-        <a class="github" href="">GitHub</a>
+        <a class="github" href="">
+          <svg class="icon">
+            <use xlink:href="#icon-github"></use>
+          </svg>
+          GitHub
+        </a>
         <router-link to="/doc">起步</router-link>
       </p>
     </div>
@@ -104,7 +109,7 @@ export default {
 }
 
 .banner {
-  padding: 100px 0;
+  padding: 100px 0 150px 0;
   display: grid;
   justify-content: center;
   grid-template-areas:
@@ -112,8 +117,8 @@ export default {
         "icon text"
         "icon link";
   flex-direction: column;
-  background: lightgreen;
-  clip-path: ellipse(80% 60% at 50% 40%);
+  background: linear-gradient(45deg, rgba(95, 188, 144, 1) 15%, rgba(119, 201, 212, 1) 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
 
   > svg {
     grid-area: icon;
@@ -131,23 +136,37 @@ export default {
   }
 
   > .actions {
+    margin-top: 10px;
     padding: 8px 0;
     grid-area: link;
+    display: flex;
+    font-weight: 700;
+
 
     a {
-      margin: 0 8px 0 0;
+      margin: 0 15px 0 0;
       background: #fff;
       display: inline-block;
-      $h: 28px;
+      $h: 40px;
       height: $h;
       line-height: $h;
       border-radius: math.div($h, 2);
-      padding: 0 8px;
+      padding: 0 15px;
+      color: #2c3e50;
     }
 
     .github {
       color: #4f5959;
-      background: #f6f6f6;
+      background: #f2f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      > svg {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+      }
     }
   }
 }

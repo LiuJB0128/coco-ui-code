@@ -1,12 +1,11 @@
 # 安装
 打开终端运行下列命令：
 
+使用 npm：
 ```
 npm install coco-ui
 ```
-
-或
-
+使用 yarn：
 ```
 yarn add coco-ui
 ```

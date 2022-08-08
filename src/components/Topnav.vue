@@ -5,7 +5,7 @@
     </svg>
     <router-link to="/" class="logo">
       <svg class="icon">
-        <use xlink:href="#icon-coconut"></use>
+        <use xlink:href="#icon-Coconut"></use>
       </svg>
     </router-link>
     <ul class="menu">
@@ -14,7 +14,6 @@
       </li>
     </ul>
   </div>
-
 </template>
 
 <script lang="ts">
@@ -39,11 +38,12 @@ export default {
 
 <style lang="scss" scoped>
 .topnav {
-  background: pink;
+  background: #ffffff;
   display: flex;
   padding: 16px;
   position: relative;
   z-index: 20;
+  box-shadow: 0 0 1px black;
 
   > .logo {
     display: inline-block;
@@ -63,6 +63,11 @@ export default {
 
     > li {
       margin: 0 1em;
+
+      > a {
+        font-weight: 500;
+        color: #2c3e50;
+      }
     }
   }
 
