@@ -32,7 +32,7 @@ import Button from '../lib/Button.vue';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-solarizedlight.css';
 import {computed, ref} from 'vue';
-import useClipboard from 'vue-clipboard3'
+import useClipboard from 'vue-clipboard3';
 
 export default {
   components: {
@@ -49,18 +49,18 @@ export default {
     const showCode = () => codeVisible.value = true;
     const hideCode = () => codeVisible.value = false;
     const codeVisible = ref(false);
-    const { toClipboard } = useClipboard()
+    const {toClipboard} = useClipboard();
 
     const copy = async () => {
       try {
-        await toClipboard(props.component.__sourceCode)
-        console.log('Copied to clipboard')
-        alert('复制成功！')
+        await toClipboard(props.component.__sourceCode);
+        console.log('Copied to clipboard');
+        alert('复制成功！');
       } catch (e) {
-        console.error(e)
-        alert('复制失败！')
+        console.error(e);
+        alert('复制失败！');
       }
-    }
+    };
     return {
       Prism,
       html,

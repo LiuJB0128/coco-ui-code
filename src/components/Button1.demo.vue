@@ -1,11 +1,13 @@
 <demo>
-基础用法
+按钮类型：主按钮、次按钮、虚线按钮、链接按钮和文本按钮
 </demo>
 <template>
-  <Button>Default</Button>
-  <Button theme="button">Button</Button>
-  <Button theme="link">Link</Button>
-  <Button theme="text">Text</Button>
+  <Button theme="primary">Primary Button</Button>
+  <Button>Default Button</Button>
+  <Button theme="dashed">Dashed Button</Button>
+  <br/>
+  <Button theme="link">Link Button</Button>
+  <Button theme="text">Text Button</Button>
 </template>
 
 <script lang="ts">

@@ -1,10 +1,12 @@
 <demo>
-不同等级
+危险按钮
 </demo>
 <template>
-  <Button level="main">主要按钮</Button>
-  <Button>普通按钮</Button>
-  <Button level="danger">危险按钮</Button>
+  <Button theme="primary" level="danger">Primary</Button>
+  <Button level="danger">Default</Button>
+  <Button theme="dashed" level="danger">Dashed</Button>
+  <Button theme="link" level="danger">Link</Button>
+  <Button theme="text" level="danger">Text</Button>
 </template>
 
 <script lang="ts">

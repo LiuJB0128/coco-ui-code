@@ -47,14 +47,15 @@ export default {
 $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
-$blue: #40a9ff;
+$green: #5FBC90;
 $radius: 4px;
-$red: #f56c6c;
+$red: #ff4d4f;
 $grey: #b0b2b7;
+$shadow: #000004;
 .coco-button {
   box-sizing: border-box;
   height: $h;
-  padding: 0 12px;
+  padding: 0 14px;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
@@ -65,16 +66,32 @@ $grey: #b0b2b7;
   border: 1px solid $border-color;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
-  transition: background 250ms;
+  transition: all .3s cubic-bezier(0.65, 0.05, 0.36, 1);
+  margin-right: 8px;
+  margin-bottom: 12px;
+  font-weight: 400;
+  position: relative;
 
-  & + & {
-    margin-left: 8px;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    box-shadow: 0 0 0 5px $shadow;
+    transition: .3s;
+  }
+
+  &:active::after {
+    box-shadow: none;
+    opacity: 0.4;
+    transition: 0s;
   }
 
   &:hover,
   &:focus {
-    color: $blue;
-    border-color: $blue;
+    color: $green;
+    border-color: $green;
   }
 
   &:focus {
@@ -85,14 +102,34 @@ $grey: #b0b2b7;
     border: 0;
   }
 
-  &.coco-theme-link {
+  &.coco-theme-primary {
     border-color: transparent;
     box-shadow: none;
-    color: $blue;
+    color: #fff;
+    background: $green;
 
     &:hover,
     &:focus {
-      color: lighten($blue, 10%);
+      background: lighten($green, 10%);
+    }
+  }
+
+  &.coco-theme-dashed {
+    border: 1px dashed $border-color;
+  }
+
+  &.coco-theme-link {
+    border-color: transparent;
+    box-shadow: none;
+    color: $green;
+
+    &:active::after {
+      opacity: 0;
+    }
+
+    &:hover,
+    &:focus {
+      color: lighten($green, 10%);
     }
   }
 
@@ -101,6 +138,10 @@ $grey: #b0b2b7;
     box-shadow: none;
     color: inherit;
 
+    &:active::after {
+      opacity: 0;
+    }
+
     &:hover,
     &:focus {
       background: darken(white, 5%);
@@ -108,39 +149,51 @@ $grey: #b0b2b7;
   }
 
   &.coco-size-big {
-    font-size: 24px;
-    height: 48px;
+    font-size: 18px;
+    height: 40px;
     padding: 0 16px;
   }
 
   &.coco-size-small {
-    font-size: 12px;
-    height: 20px;
-    padding: 0 4px;
+    font-size: 14px;
+    height: 24px;
+    padding: 0 7px;
   }
 
   &.coco-theme-button {
-    &.coco-level-main {
-      background: $blue;
-      color: white;
-      border-color: $blue;
+    &.coco-level-danger {
+      border-color: $red;
+      color: $red;
 
       &:hover,
       &:focus {
-        background: darken($blue, 10%);
-        border-color: darken($blue, 10%);
+        border-color: lighten($red, 10%);
+        color: lighten($red, 10%);
       }
     }
+  }
 
+  &.coco-theme-primary {
     &.coco-level-danger {
       background: $red;
-      border-color: $red;
-      color: white;
 
       &:hover,
       &:focus {
-        background: darken($red, 10%);
-        border-color: darken($red, 10%);
+        background: lighten($red, 10%);
+        border-color: lighten($red, 10%);
+      }
+    }
+  }
+
+  &.coco-theme-dashed {
+    &.coco-level-danger {
+      border-color: $red;
+      color: $red;
+
+      &:hover,
+      &:focus {
+        border-color: lighten($red, 10%);
+        color: lighten($red, 10%);
       }
     }
   }
@@ -157,15 +210,6 @@ $grey: #b0b2b7;
   }
 
   &.coco-theme-text {
-    &.coco-level-main {
-      color: $blue;
-
-      &:hover,
-      &:focus {
-        color: darken($blue, 10%);
-      }
-    }
-
     &.coco-level-danger {
       color: $red;
 
@@ -187,7 +231,7 @@ $grey: #b0b2b7;
     display: inline-block;
     margin-right: 4px;
     border-radius: 8px;
-    border-color: $blue $blue $blue transparent;
+    border-color: $green $green $green transparent;
     border-style: solid;
     border-width: 2px;
     animation: coco-spin 1s infinite linear;
