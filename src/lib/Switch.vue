@@ -1,7 +1,7 @@
 <template>
   <div>
     <button class="coco-switch" @click="toggle" :class="{'coco-checked':value}" :disabled="disabled">
-      <span/>
+      <span><span v-if="loading" class="coco-loadingIndicator"></span></span>
     </button>
   </div>
 </template>
@@ -14,6 +14,10 @@ export default {
       type: Boolean,
       default: false
     },
+    loading: {
+      type: Boolean,
+      default: false
+    }
   },
   setup(props, context) {
     const toggle = () => {
@@ -28,6 +32,7 @@ export default {
 
 $h: 22px;
 $h2: $h - 4px;
+$green: #5FBC90;
 .coco-switch {
   height: $h;
   width: $h * 2;
@@ -74,10 +79,33 @@ $h2: $h - 4px;
 
   &[disabled] {
     cursor: not-allowed;
+    opacity: 0.5;
+  }
 
-    &.coco-checked {
-      opacity: 0.5;
+  > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > .coco-loadingIndicator {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      border-radius: 8px;
+      border-color: $green $green $green transparent;
+      border-style: solid;
+      border-width: 1px;
+      animation: coco-spin 1s infinite linear;
     }
+  }
+}
+
+@keyframes coco-spin {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
   }
 }
 </style>

@@ -1,8 +1,8 @@
 <demo>
-不可用：Switch 失效状态
+加载中：标识开关操作仍在执行中
 </demo>
 <template>
-  <Switch v-model:value="bool" disabled/>
+  <Switch v-model:value="bool" loading disabled/>
 </template>
 
 <script lang="ts">

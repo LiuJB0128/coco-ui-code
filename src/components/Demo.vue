@@ -80,7 +80,8 @@ $border-color: #d9d9d9;
   margin: 16px 0 32px;
 
   > h2 {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 500;
     padding: 8px 16px;
     border-bottom: 1px solid $border-color;
   }
@@ -109,7 +110,6 @@ $border-color: #d9d9d9;
   }
 
   &-code {
-    padding: 8px 16px;
     border-top: 1px dashed $border-color;
 
     > pre {
@@ -120,7 +120,7 @@ $border-color: #d9d9d9;
   }
 
   .language-html {
-    background: #f5f7fa;
+    background: #ffffff;
   }
 }
 </style>
