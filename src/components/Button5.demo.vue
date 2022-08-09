@@ -1,8 +1,9 @@
 <demo>
-加载状态按钮
+加载中状态
 </demo>
 <template>
-  <Button loading>加载中</Button>
+  <Button loading>Loading</Button>
+  <Button loading></Button>
 </template>
 
 <script lang="ts">

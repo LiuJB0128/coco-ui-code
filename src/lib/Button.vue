@@ -52,6 +52,7 @@ $radius: 4px;
 $red: #ff4d4f;
 $grey: #b0b2b7;
 $shadow: #000004;
+$disabled: #f5f5f5;
 .coco-button {
   box-sizing: border-box;
   height: $h;
@@ -221,19 +222,19 @@ $shadow: #000004;
   }
 
   &[disabled] {
-    cursor: not-allowed;
     opacity: 0.5;
+    cursor: not-allowed;
   }
 
   > .coco-loadingIndicator {
     width: 14px;
     height: 14px;
     display: inline-block;
-    margin-right: 4px;
+    margin: 0 4px 0 4px;
     border-radius: 8px;
     border-color: $green $green $green transparent;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     animation: coco-spin 1s infinite linear;
   }
 }
