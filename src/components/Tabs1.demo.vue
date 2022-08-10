@@ -1,10 +1,11 @@
 <demo>
-基础用法
+基础用法：默认选中第一项
 </demo>
 <template>
-  <Tabs v-model:selected="x">
-    <Tab title="导航一">内容一</Tab>
-    <Tab title="导航二">内容二</Tab>
+  <Tabs v-model:selected="selected">
+    <Tab title="Tab 1">Content of Tab Pane 1</Tab>
+    <Tab title="Tab 2">Content of Tab Pane 2</Tab>
+    <Tab title="Tab 3">Content of Tab Pane 3</Tab>
   </Tabs>
 </template>
 
@@ -18,8 +19,8 @@ export default {
     Tabs, Tab
   },
   setup() {
-    const x = ref('导航一');
-    return {x};
+    const selected = ref('Tab 1');
+    return {selected};
   }
 };
 </script>

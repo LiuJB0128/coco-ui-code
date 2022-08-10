@@ -4,7 +4,7 @@
 <template>
   <Button loading>Loading</Button>
   <Button loading></Button>
-  <Button :loading="Loading" @click="enterLoading">Enter Loading</Button>
+  <Button :loading="loading" @click="enterLoading">Enter Loading</Button>
 </template>
 
 <script lang="ts">
@@ -13,18 +13,17 @@ import {ref} from 'vue';
 
 export default {
   components: {Button},
-  setup(){
-    const Loading = ref<boolean>(false);
+  setup() {
+    const loading = ref<boolean>(false);
     const enterLoading = () => {
-      Loading.value = !Loading.value;
+      loading.value = !loading.value;
 
       setTimeout(() => {
-        Loading.value = false;
+        loading.value = false;
       }, 3000);
     };
     return {
-      Loading,
-      enterLoading,
+      loading, enterLoading
     };
   }
 };
