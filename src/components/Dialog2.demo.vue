@@ -1,22 +1,22 @@
 <demo>
-弹窗
+确认对话框：调用函数可以快捷地弹出确认框
 </demo>
 <template>
-  <Button @click="showDialog">show</Button>
+  <Button @click="showConfirm">Confirm</Button>
 </template>
 
 <script lang="ts">
 import Button from '../lib/Button.vue';
 import {h} from 'vue';
-import {openDialog} from '../lib/openDialog';
+import {confirm} from '../lib/confirm';
 
 export default {
   components: {Button},
   setup() {
-    const showDialog = () => {
-      openDialog({
-        title: h('strong', {}, '标题'),
-        content: '你好',
+    const showConfirm = () => {
+      confirm({
+        title: 'Confirm',
+        content: h('div', {style: 'color: red'}, 'Some descriptions'),
         ok() {
           console.log('ok');
         },
@@ -26,7 +26,7 @@ export default {
       });
     };
     return {
-      showDialog
+      showConfirm
     };
   }
 };

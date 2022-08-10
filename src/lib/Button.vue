@@ -68,10 +68,12 @@ $disabled: #f5f5f5;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
   transition: all .3s cubic-bezier(0.65, 0.05, 0.36, 1);
-  margin-right: 8px;
-  margin-bottom: 12px;
   font-weight: 400;
   position: relative;
+
+  & + & {
+    margin: 6px 0 6px 8px;
+  }
 
   &::after {
     content: '';

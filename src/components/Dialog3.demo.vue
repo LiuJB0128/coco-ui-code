@@ -1,8 +1,9 @@
 <demo>
-基础用法：普通的对话框
+国际化：自定义按钮文字
 </demo>
 <template>
-  <Button theme="primary" @click="showDialog">Open Dialog</Button>
+  <Button theme="primary" @click="showDialog">Dialog</Button>
+  <Button @click="showConfirm">Confirm</Button>
   <Dialog v-model:visible="visible" :close-on-click-overlay="true" :ok="handleOk" :cancel="handleCancel">
     <template v-slot:title>
       <strong>Title</strong>
@@ -10,13 +11,16 @@
     <template v-slot:content>
       <p>Some contents...</p>
     </template>
+    <template #okText>OK</template>
+    <template #cancelText>Cancel</template>
   </Dialog>
 </template>
 
 <script lang="ts">
 import Dialog from '../lib/Dialog.vue';
 import Button from '../lib/Button.vue';
-import {ref} from 'vue';
+import {h, ref} from 'vue';
+import {confirm} from '../lib/confirm';
 
 export default {
   components: {Dialog, Button},
@@ -32,8 +36,22 @@ export default {
     const handleCancel = () => {
       console.log('cancel');
     };
+    const showConfirm = () => {
+      confirm({
+        title: 'Confirm',
+        content: h('div', {style: 'color: red'}, 'Some descriptions'),
+        ok() {
+          console.log('ok');
+        },
+        cancel() {
+          console.log('cancel');
+        },
+        okText: 'OK',
+        cancelText: 'Cancel'
+      });
+    };
     return {
-      visible, handleOk, handleCancel, showDialog
+      visible, handleOk, handleCancel, showDialog, showConfirm
     };
   }
 };
