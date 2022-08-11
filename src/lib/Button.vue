@@ -31,12 +31,13 @@ export default {
     }
   },
   setup(props) {
-    const {theme, size, level} = props;
+    const {theme, size, level, loading} = props;
     const classes = computed(() => {
       return {
         [`coco-theme-${theme}`]: theme,
         [`coco-size-${size}`]: size,
         [`coco-level-${level}`]: level,
+        [`coco-button-loading`]: loading
       };
     });
     return {classes};
@@ -219,6 +220,32 @@ $disabled: #f5f5f5;
       &:hover,
       &:focus {
         color: darken($red, 10%);
+      }
+    }
+  }
+
+  &.coco-theme-primary {
+    &.coco-button-loading {
+      > .coco-loadingIndicator {
+        border-color: white white white transparent;
+      }
+    }
+  }
+
+  &.coco-theme-primary {
+    &.coco-level-danger {
+      &.coco-button-loading {
+        > .coco-loadingIndicator {
+          border-color: white white white transparent;
+        }
+      }
+    }
+  }
+
+  &.coco-level-danger {
+    &.coco-button-loading {
+      > .coco-loadingIndicator {
+        border-color: $red $red $red transparent;
       }
     }
   }
