@@ -1,6 +1,6 @@
 <template>
   <div class="coco-tabs">
-    <div class="coco-tabs-nav" ref="container">
+    <div class="coco-tabs-nav" ref="container" :class="classes">
       <div class="coco-tabs-nav-item" v-for="(t,index) in titles" :ref="el => { if (t===selected) selectedItem = el }"
            @click="select(t)" :class="{selected: t=== selected}"
            :key="index">{{ t }}
@@ -20,9 +20,24 @@ export default {
   props: {
     selected: {
       type: String
+    },
+    position: {
+      type: String,
+      default: top
+    },
+    size: {
+      type: String,
+      default: 'normal'
     }
   },
   setup(props, context) {
+    const {position, size} = props;
+    const classes = computed(() => {
+      return {
+        [`coco-tabs-position-${position}`]: position,
+        [`coco-tabs-size-${size}`]: size
+      };
+    });
     const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
@@ -58,7 +73,7 @@ export default {
       context.emit('update:selected', title);
     };
     return {
-      defaults, titles, current, select, selectedItem, indicator, container
+      defaults, titles, current, select, selectedItem, indicator, container, classes
     };
   }
 };
@@ -101,7 +116,34 @@ $border-color: #d9d9d9;
 
   &-content {
     padding: 16px 0;
-    font-size: 14px;
+    font-size: 16px;
+  }
+}
+
+.coco-tabs-nav {
+  &.coco-tabs-position-centered {
+    display: flex;
+    justify-content: center;
+  }
+
+  &.coco-tabs-size-big {
+    > div {
+      font-size: 18px;
+    }
+
+    & + .coco-tabs-content {
+      font-size: 18px;
+    }
+  }
+
+  &.coco-tabs-size-small {
+    > div {
+      font-size: 14px;
+    }
+
+    & + .coco-tabs-content {
+      font-size: 14px;
+    }
   }
 }
 </style>
