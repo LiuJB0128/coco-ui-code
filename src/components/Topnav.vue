@@ -7,6 +7,7 @@
       <svg class="icon">
         <use xlink:href="#icon-Coconut"></use>
       </svg>
+      <span class="text">Coco UI</span>
     </router-link>
     <ul class="menu">
       <li>
@@ -46,13 +47,22 @@ export default {
   box-shadow: 0 0 1px black;
 
   > .logo {
-    display: inline-block;
     max-width: 6em;
     margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     > svg {
       height: 24px;
       width: 24px;
+    }
+
+    .text {
+      padding-left: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      color: inherit;
     }
   }
 
