@@ -54,10 +54,12 @@ $aside-index: 10;
 .layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
 
   > .nav {
     flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
   }
 
   > .content {
@@ -67,31 +69,30 @@ $aside-index: 10;
 }
 
 .content {
-  display: flex;
+  display: flow-root;
 
   > aside {
-    flex-shrink: 0;
+    position: fixed;
+    left: 0;
   }
 
   > main {
     background: #fff;
-    flex-grow: 1;
-    padding: 16px;
+    padding: 16px 36px 16px 356px;
+    @media (max-width: 720px) {
+      padding: 16px;
+    }
   }
 }
 
 aside {
-  border-right: 5px solid black;
+  border-right: 1px solid #BDBDBD;
   background: #ffffff;
-  width: 150px;
-  padding: 16px 0 16px;
+  width: 320px;
+  padding: 16px 10px 16px 0;
   height: 100%;
   z-index: $aside-index;
   @media (max-width: 720px) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 75px 0 16px;
     transform: translateX(-100%);
     transition: transform .2s ease;
     &.visible {
@@ -100,16 +101,26 @@ aside {
   }
 
   > h2 {
-    margin-bottom: 4px;
-    padding: 0 16px;
+    font-size: 18px;
+    margin: 16px 0;
+    padding: 8px 16px 8px 40px;
     white-space: nowrap;
+
+    &::after {
+      display: block;
+      position: relative;
+      top: 16px;
+      content: '';
+      border-bottom: 1px solid #BDBDBD;
+    }
   }
 
   > ol {
     > li {
       > a {
+        font-size: 16px;
         display: block;
-        padding: 4px 16px;
+        padding: 9px 16px 9px 40px;
         text-decoration: none;
 
         &:hover {

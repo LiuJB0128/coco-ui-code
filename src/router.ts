@@ -34,6 +34,9 @@ export const router = createRouter({
       ]
     }
   ],
+  scrollBehavior () {
+    return { top: 0 }
+  }
 });
 router.afterEach(() => {
   console.log('路由切换了');

@@ -40,7 +40,7 @@ export default {
 .topnav {
   background: #ffffff;
   display: flex;
-  padding: 16px;
+  padding: 16px 16px 16px 40px;
   position: relative;
   z-index: 20;
   box-shadow: 0 0 1px black;
