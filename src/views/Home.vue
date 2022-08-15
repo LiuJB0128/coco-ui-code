@@ -8,7 +8,7 @@
       <h1>Coco UI</h1>
       <h2>一个有点好看的 UI 框架</h2>
       <p class="actions">
-        <a class="github" href="">
+        <a class="github" href="https://github.com/LiuJB0128/coco-ui-code">
           <svg class="icon">
             <use xlink:href="#icon-github"></use>
           </svg>
