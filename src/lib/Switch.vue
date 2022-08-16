@@ -60,6 +60,10 @@ $green: #5FBC90;
     }
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &:focus {
     outline: none;
   }

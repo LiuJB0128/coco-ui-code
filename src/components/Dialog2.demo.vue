@@ -6,9 +6,8 @@
 </template>
 
 <script lang="ts">
-import Button from '../lib/Button.vue';
 import {h} from 'vue';
-import {confirm} from '../lib/confirm';
+import {Button, confirm} from '../lib/index';
 
 export default {
   components: {Button},

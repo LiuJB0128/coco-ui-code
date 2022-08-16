@@ -3,11 +3,11 @@
 
 使用 npm：
 ```
-npm install coco-ui
+npm install coco-ui-vue
 ```
 使用 yarn：
 ```
-yarn add coco-ui
+yarn add coco-ui-vue
 ```
 
 下一节：[开始使用](#/doc/get-started)

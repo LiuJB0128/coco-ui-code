@@ -18,8 +18,7 @@
 </template>
 
 <script lang="ts">
-import Dialog from '../lib/Dialog.vue';
-import Button from '../lib/Button.vue';
+import {Button, Dialog} from '../lib/index';
 import {ref} from 'vue';
 
 export default {
@@ -31,7 +30,7 @@ export default {
       visible.value = !visible.value;
     };
     const handleOk = () => {
-      loading.value = true
+      loading.value = true;
       setTimeout(() => {
         loading.value = false;
         visible.value = false;
