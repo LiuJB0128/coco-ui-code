@@ -3,7 +3,7 @@
 </demo>
 <template>
   <Button theme="primary" @click="showDialog">Open Dialog with customized footer</Button>
-  <Dialog v-model:visible="visible" :close-on-click-overlay="true">
+  <Dialog v-model:visible="visible">
     <template v-slot:title>
       <strong>Title</strong>
     </template>

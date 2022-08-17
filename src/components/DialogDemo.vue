@@ -7,6 +7,7 @@
     <Demo :component="Dialog2Demo"/>
     <Demo :component="Dialog3Demo"/>
     <Demo :component="Dialog4Demo"/>
+    <Demo :component="Dialog5Demo"/>
   </div>
 </template>
 <script lang="ts">
@@ -15,6 +16,7 @@ import Dialog1Demo from './Dialog1.demo.vue';
 import Dialog2Demo from './Dialog2.demo.vue';
 import Dialog3Demo from './Dialog3.demo.vue';
 import Dialog4Demo from './Dialog4.demo.vue';
+import Dialog5Demo from './Dialog5.demo.vue';
 
 export default {
   components: {Demo},
@@ -23,7 +25,8 @@ export default {
       Dialog1Demo,
       Dialog2Demo,
       Dialog3Demo,
-      Dialog4Demo
+      Dialog4Demo,
+      Dialog5Demo
     };
   }
 };

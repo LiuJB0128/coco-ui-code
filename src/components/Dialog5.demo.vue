@@ -1,24 +1,22 @@
 <demo>
-国际化：自定义按钮文字
+禁用点击遮罩层关闭对话框：默认允许
 </demo>
 <template>
-  <Button theme="primary" @click="showDialog">Dialog</Button>
+  <Button theme="primary" @click="showDialog">Open Dialog</Button>
   <Button @click="showConfirm">Confirm</Button>
-  <Dialog v-model:visible="visible" :ok="handleOk" :cancel="handleCancel">
+  <Dialog v-model:visible="visible" :close-on-click-overlay="false" :ok="handleOk" :cancel="handleCancel">
     <template v-slot:title>
       <strong>Title</strong>
     </template>
     <template v-slot:content>
       <p>Some contents...</p>
     </template>
-    <template #okText>OK</template>
-    <template #cancelText>Cancel</template>
   </Dialog>
 </template>
 
 <script lang="ts">
-import {h, ref} from 'vue';
 import {Button, confirm, Dialog} from '../lib/index';
+import {h, ref} from 'vue';
 
 export default {
   components: {Dialog, Button},
@@ -44,6 +42,7 @@ export default {
         cancel() {
           console.log('cancel');
         },
+        closeOnClickOverlay: false,
         okText: 'OK',
         cancelText: 'Cancel'
       });
