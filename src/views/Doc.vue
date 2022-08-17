@@ -32,6 +32,7 @@
         </ol>
       </aside>
       <main>
+        <div class="coco-layout-overlay" @click="onClickOverlay" v-if="!asideVisible"></div>
         <router-view/>
       </main>
     </div>
@@ -45,7 +46,10 @@ export default {
   components: {Topnav},
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible');
-    return {asideVisible};
+    const onClickOverlay = () => {
+      asideVisible.value = true;
+    };
+    return {asideVisible, onClickOverlay};
   }
 };
 </script>
@@ -70,6 +74,21 @@ $aside-index: 10;
 
 .content {
   display: flow-root;
+
+  .coco-layout-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0;
+    z-index: 9;
+    @media (min-width: 720px) {
+      width: 0;
+      height: 0;
+    }
+  }
 
   > aside {
     position: fixed;
