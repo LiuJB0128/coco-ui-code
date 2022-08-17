@@ -25,7 +25,7 @@
           <use xlink:href="#icon-vue"></use>
         </svg>
         <h3>基于 Vue 3</h3>
-        <p>骄傲地使用了 Vue 3 Composition API</p>
+        <p>本框架基于 Vue 3 开发</p>
       </li>
       <li>
         <svg class="icon">
@@ -38,8 +38,8 @@
         <svg class="icon">
           <use xlink:href="#icon-chuangyi-"></use>
         </svg>
-        <h3>代码易读</h3>
-        <p>每个组件的源代码都极其简洁</p>
+        <h3>清爽简洁</h3>
+        <p>以简洁的代码构建整个界面</p>
       </li>
     </ul>
   </div>
@@ -56,7 +56,7 @@ export default {
 
 .features {
   margin: 64px auto;
-  width: 400px;
+  width: 300px;
   @media (min-width: 800px) {
     width: 800px;
     > ul {
@@ -141,10 +141,10 @@ export default {
     grid-area: link;
     display: flex;
     font-weight: 700;
-
+    flex-wrap: wrap;
 
     a {
-      margin: 0 15px 0 0;
+      margin: 0 15px 10px 0;
       background: #fff;
       display: inline-block;
       $h: 40px;

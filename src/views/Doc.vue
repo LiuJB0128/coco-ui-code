@@ -89,10 +89,10 @@ aside {
   border-right: 1px solid #BDBDBD;
   background: #ffffff;
   width: 320px;
-  padding: 16px 10px 16px 0;
   height: 100%;
   z-index: $aside-index;
   @media (max-width: 720px) {
+    width: 220px;
     transform: translateX(-100%);
     transition: transform .2s ease;
     &.visible {
@@ -105,6 +105,9 @@ aside {
     margin: 16px 0;
     padding: 8px 16px 8px 40px;
     white-space: nowrap;
+    @media (max-width: 720px) {
+      padding: 8px 16px;
+    }
 
     &::after {
       display: block;
@@ -122,6 +125,9 @@ aside {
         display: block;
         padding: 9px 16px 9px 40px;
         text-decoration: none;
+        @media (max-width: 720px) {
+          padding: 9px 16px;
+        }
 
         &:hover {
           color: #5FBC90;

@@ -45,6 +45,9 @@ export default {
   position: relative;
   z-index: 20;
   box-shadow: 0 0 1px black;
+  @media (max-width: 720px) {
+    padding: 16px;
+  }
 
   > .logo {
     max-width: 6em;
@@ -70,6 +73,7 @@ export default {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
+    list-style: none;
 
     > li {
       margin: 0 1em;

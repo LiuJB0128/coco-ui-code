@@ -4,7 +4,10 @@
   box-sizing: border-box;
 }
 ul,ol {
-  list-style: none;
+  //list-style: none;
+  ::marker{
+    color: #657180;
+  }
 }
 a{
   text-decoration: none;
