@@ -2,7 +2,7 @@
 基础用法：数字输入框
 </demo>
 <template>
-  <InputNumber v-model:value="value" :max="10" :min="1"/> 当前值：{{value}}
+  <InputNumber v-model:value="value" :min="1" :max="10"/> 当前值：{{value}}
 </template>
 
 <script setup lang="ts">

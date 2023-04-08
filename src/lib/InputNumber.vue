@@ -1,10 +1,11 @@
 <template>
-  <div class="coco-input-number">
+  <div class="coco-input-number" :class="classes">
     <div class="coco-input-number-input-wrap">
       <input type="text" :value="value || ''" class="coco-input-number-input" @keyup="keyDown" @change="checkCount">
     </div>
     <div class="coco-input-number-handle-wrap">
-      <span @click="addCount" class="coco-input-number-handle" :class="{'coco-input-number-handle-up': true, 'coco-input-number-handle-up-disabled': upDisabled}">+</span>
+      <span @click="addCount" class="coco-input-number-handle"
+            :class="{'coco-input-number-handle-up': true, 'coco-input-number-handle-up-disabled': upDisabled}">+</span>
       <span @click="reduceCount" class="coco-input-number-handle"
             :class="{'coco-input-number-handle-down': true, 'coco-input-number-handle-down-disabled': downDisabled}">-</span>
     </div>
@@ -12,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue';
+import {computed, ref} from 'vue';
 
 const props = defineProps({
   value: Number,
@@ -20,56 +21,61 @@ const props = defineProps({
   min: Number,
   size: String
 });
-const emit = defineEmits(['update:value'])
-const upDisabled = ref(false)
-const downDisabled = ref(false)
+const emit = defineEmits(['update:value']);
+const upDisabled = ref(false);
+const downDisabled = ref(false);
+const classes = computed(() => {
+  return {
+    [`coco-input-number-size-${props.size}`]: props.size,
+  };
+});
 const addCount = () => {
-  let count = props.value
+  let count = props.value;
   if (props.max) {
-    downDisabled.value = false
+    downDisabled.value = false;
     upDisabled.value = count >= props.max - 1;
     if (count < props.max) {
-      count++
+      count++;
     }
   } else {
-    count++
+    count++;
   }
-  emit('update:value', count)
+  emit('update:value', count);
 };
 const reduceCount = () => {
-  let count = props.value
+  let count = props.value;
   if (props.min) {
-    upDisabled.value = false
+    upDisabled.value = false;
     downDisabled.value = count <= props.min + 1;
     if (count > props.min) {
-      count--
+      count--;
     }
   } else {
-    count--
+    count--;
   }
-  emit('update:value', count)
+  emit('update:value', count);
 };
 const keyDown = (e) => {
-  let kCount = Number(e.target.value.replace(/[^\d]/g, ''))
+  let kCount = Number(e.target.value.replace(/[^\d]/g, ''));
   if (props.max) {
-    if (kCount > props.max) {kCount = props.max}
+    if (kCount > props.max) {kCount = props.max;}
   }
-  emit('update:value', kCount)
-}
+  emit('update:value', kCount);
+};
 const checkCount = (e) => {
-  let finallyCount = Number(e.target.value)
+  let finallyCount = Number(e.target.value);
   if (props.max) {
     if (finallyCount >= props.max) {
-      e.target.value = props.max.toString()
+      e.target.value = props.max.toString();
     }
   }
   if (props.min) {
     if (finallyCount <= props.min) {
-      e.target.value = props.min.toString()
-      emit('update:value', Number(e.target.value))
+      e.target.value = props.min.toString();
+      emit('update:value', Number(e.target.value));
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -78,15 +84,26 @@ $grid: #d9d9d9;
 .coco-input-number {
   display: inline-block;
   position: relative;
-  box-sizing: content-box;
-  height: 30px;
+  box-sizing: border-box;
+  height: 32px;
   width: 90px;
   border: 1px solid $grid;
   border-radius: 2px;
   transition: all .3s;
 
+  &.coco-input-number-size-large {
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+  }
+  &.coco-input-number-size-small {
+    font-size: 16px;
+    height: 24px;
+    line-height: 24px;
+  }
   &:hover {
     border-color: $green;
+
     .coco-input-number-handle-wrap {
       opacity: 1;
     }
@@ -98,7 +115,7 @@ $grid: #d9d9d9;
   top: 0;
   right: 0;
   width: 22px;
-  height: 30px;
+  height: 100%;
   border-radius: 0 2px 2px 0;
   opacity: 0;
   transition: opacity .24s linear .1s;
@@ -115,9 +132,11 @@ $grid: #d9d9d9;
 
 .coco-input-number-handle {
   width: 100%;
-  height: 15px;
+  height: 50%;
   text-align: center;
-  line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-left: 1px solid $grid;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -129,19 +148,27 @@ $grid: #d9d9d9;
   border-top: 1px solid $grid;
 }
 
+.coco-input-number-input-wrap {
+  position: relative;
+  height: 100%;
+}
+
 .coco-input-number-input {
+  position: absolute;
   width: 100%;
-  height: 30px;
+  height: 100%;
   padding: 0 11px;
   text-align: left;
   border: 0;
   border-radius: 2px;
   transition: all .3s linear;
+
   &:focus {
     outline: none;
     box-shadow: 0 0 5px $green;
   }
 }
+
 .coco-input-number-handle-up-disabled, .coco-input-number-handle-down-disabled {
   cursor: not-allowed;
   opacity: 0.5;

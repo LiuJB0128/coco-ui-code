@@ -2,9 +2,9 @@
 三种大小：三种大小的数字输入框
 </demo>
 <template>
-  <InputNumber v-model:value="value1"/>
-  <InputNumber v-model:value="value2"/>
-  <InputNumber v-model:value="value3"/>
+  <InputNumber v-model:value="value1" size="large" :min="1" :max="10000"/>
+  <InputNumber v-model:value="value2" :min="1" :max="10000"/>
+  <InputNumber v-model:value="value3" size="small" :min="1" :max="10000"/>
 </template>
 <script setup lang="ts">
 import {InputNumber} from '../lib/index';
