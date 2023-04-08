@@ -4,13 +4,19 @@
 <template>
   <Button theme="primary">Primary</Button>
   <Button theme="primary" disabled>Primary</Button>
-  <br/>
+
+  <div style="width: 100%"></div>
+
   <Button>Default</Button>
   <Button disabled>Default</Button>
-  <br/>
+
+  <div style="width: 100%"></div>
+
   <Button theme="dashed">Dashed</Button>
   <Button theme="dashed" disabled>Dashed</Button>
-  <br/>
+
+  <div style="width: 100%"></div>
+
   <Button theme="primary" level="danger">Danger</Button>
   <Button theme="primary" level="danger" disabled>Danger</Button>
 </template>

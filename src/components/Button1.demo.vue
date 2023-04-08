@@ -5,9 +5,12 @@
   <Button theme="primary">Primary Button</Button>
   <Button>Default Button</Button>
   <Button theme="dashed">Dashed Button</Button>
-  <br/>
+
+  <div style="width: 100%"></div>
+
   <Button theme="link">Link Button</Button>
   <Button theme="text">Text Button</Button>
+
 </template>
 
 <script lang="ts">

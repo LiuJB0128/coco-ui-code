@@ -6,6 +6,7 @@
     <Demo :component="InputNumber1Demo"/>
     <Demo :component="InputNumber2Demo"/>
     <Demo :component="InputNumber3Demo"/>
+    <Demo :component="InputNumber4Demo"/>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import Demo from './Demo.vue';
 import InputNumber1Demo from './InputNumber1.demo.vue';
 import InputNumber2Demo from './InputNumber2.demo.vue';
 import InputNumber3Demo from './InputNumber3.demo.vue';
+import InputNumber4Demo from './InputNumber4.demo.vue';
 </script>
 
 <style lang="scss" scoped>

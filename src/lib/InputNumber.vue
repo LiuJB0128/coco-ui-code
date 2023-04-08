@@ -1,9 +1,9 @@
 <template>
   <div class="coco-input-number" :class="classes">
     <div class="coco-input-number-input-wrap">
-      <input type="text" :value="value || ''" class="coco-input-number-input" @keyup="keyDown" @change="checkCount">
+      <input type="text" :value="value || ''" class="coco-input-number-input" @keyup="keyDown" @change="checkCount" :disabled="disabled">
     </div>
-    <div class="coco-input-number-handle-wrap">
+    <div class="coco-input-number-handle-wrap" v-if="!disabled">
       <span @click="addCount" class="coco-input-number-handle"
             :class="{'coco-input-number-handle-up': true, 'coco-input-number-handle-up-disabled': upDisabled}">+</span>
       <span @click="reduceCount" class="coco-input-number-handle"
@@ -20,7 +20,8 @@ const props = defineProps({
   max: Number,
   min: Number,
   size: String,
-  borderless: Boolean
+  borderless: Boolean,
+  disabled: Boolean
 });
 const emit = defineEmits(['update:value']);
 const upDisabled = ref(false);
@@ -28,7 +29,8 @@ const downDisabled = ref(false);
 const classes = computed(() => {
   return {
     [`coco-input-number-size-${props.size}`]: props.size,
-    'coco-input-number-borderless': props.borderless
+    'coco-input-number-borderless': props.borderless,
+    'coco-input-number-disabled': props.disabled
   };
 });
 const addCount = () => {
@@ -109,9 +111,19 @@ $grid: #d9d9d9;
     border: none;
   }
 
+  &.coco-input-number-disabled {
+    cursor: not-allowed;
+    &:hover {
+      border-color: $grid;
+      .coco-input-number-handle-wrap {
+        opacity: 0;
+        cursor: not-allowed;
+      }
+    }
+  }
+
   &:hover {
     border-color: $green;
-
     .coco-input-number-handle-wrap {
       opacity: 1;
     }
@@ -170,7 +182,9 @@ $grid: #d9d9d9;
   border: 0;
   border-radius: 2px;
   transition: all .3s linear;
-
+  &[disabled] {
+    cursor: not-allowed;
+  }
   &:focus {
     outline: none;
     box-shadow: 0 0 5px $green;

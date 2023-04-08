@@ -126,6 +126,7 @@ $border-color: #d9d9d9;
 
 .demo-component {
   align-items: center;
+  flex-direction: row;
   display: flex;
   gap: 8px;
   flex-wrap: wrap;

@@ -4,12 +4,18 @@
 <template>
   <Button theme="primary" loading>Primary</Button>
   <Button theme="primary" disabled loading>Primary</Button>
-  <br/>
+
+  <div style="width: 100%"></div>
+
   <Button :loading="loading" @click="enterLoading">Enter Loading</Button>
-  <br/>
+
+  <div style="width: 100%"></div>
+
   <Button theme="dashed" loading></Button>
   <Button theme="dashed" disabled loading></Button>
-  <br/>
+
+  <div style="width: 100%"></div>
+
   <Button theme="primary" level="danger" loading>Danger</Button>
   <Button level="danger" loading>Default</Button>
 </template>
