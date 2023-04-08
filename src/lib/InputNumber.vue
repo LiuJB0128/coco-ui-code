@@ -1,7 +1,7 @@
 <template>
   <div class="coco-input-number">
     <div class="coco-input-number-input-wrap">
-      <input type="text" :value="value" class="coco-input-number-input">
+      <input type="text" :value="value || ''" class="coco-input-number-input" @keyup="keyDown" @change="checkCount">
     </div>
     <div class="coco-input-number-handle-wrap">
       <span @click="addCount" class="coco-input-number-handle" :class="{'coco-input-number-handle-up': true, 'coco-input-number-handle-up-disabled': upDisabled}">+</span>
@@ -17,7 +17,8 @@ import {ref} from 'vue';
 const props = defineProps({
   value: Number,
   max: Number,
-  min: Number
+  min: Number,
+  size: String
 });
 const emit = defineEmits(['update:value'])
 const upDisabled = ref(false)
@@ -48,6 +49,27 @@ const reduceCount = () => {
   }
   emit('update:value', count)
 };
+const keyDown = (e) => {
+  let kCount = Number(e.target.value.replace(/[^\d]/g, ''))
+  if (props.max) {
+    if (kCount > props.max) {kCount = props.max}
+  }
+  emit('update:value', kCount)
+}
+const checkCount = (e) => {
+  let finallyCount = Number(e.target.value)
+  if (props.max) {
+    if (finallyCount >= props.max) {
+      e.target.value = props.max.toString()
+    }
+  }
+  if (props.min) {
+    if (finallyCount <= props.min) {
+      e.target.value = props.min.toString()
+      emit('update:value', Number(e.target.value))
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -80,6 +102,7 @@ $grid: #d9d9d9;
   border-radius: 0 2px 2px 0;
   opacity: 0;
   transition: opacity .24s linear .1s;
+  background: white;
 
   &:hover {
     cursor: pointer;
