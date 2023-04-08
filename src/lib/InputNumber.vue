@@ -19,7 +19,8 @@ const props = defineProps({
   value: Number,
   max: Number,
   min: Number,
-  size: String
+  size: String,
+  borderless: Boolean
 });
 const emit = defineEmits(['update:value']);
 const upDisabled = ref(false);
@@ -27,6 +28,7 @@ const downDisabled = ref(false);
 const classes = computed(() => {
   return {
     [`coco-input-number-size-${props.size}`]: props.size,
+    'coco-input-number-borderless': props.borderless
   };
 });
 const addCount = () => {
@@ -96,11 +98,17 @@ $grid: #d9d9d9;
     height: 40px;
     line-height: 40px;
   }
+
   &.coco-input-number-size-small {
     font-size: 16px;
     height: 24px;
     line-height: 24px;
   }
+
+  &.coco-input-number-borderless {
+    border: none;
+  }
+
   &:hover {
     border-color: $green;
 
