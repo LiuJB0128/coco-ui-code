@@ -123,4 +123,11 @@ $border-color: #d9d9d9;
     background: #ffffff;
   }
 }
+
+.demo-component {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 </style>

@@ -72,10 +72,6 @@ $disabled: #f5f5f5;
   font-weight: 400;
   position: relative;
 
-  & + & {
-    margin: 6px 0 6px 8px;
-  }
-
   &::after {
     content: '';
     position: absolute;
