@@ -1,5 +1,5 @@
 <template>
-  <div class="coco-tooltip" :title="title">
+  <div class="coco-tooltip" :title="title" :position="placement">
     <slot/>
   </div>
 </template>
@@ -7,7 +7,8 @@
 import {defineProps} from 'vue';
 
 const props = defineProps({
-  title: String
+  title: String,
+  placement: String
 });
 </script>
 <style lang="scss">
@@ -39,7 +40,7 @@ $tooltip-bg: #404040;
     color: #fff;
     border-radius: 5px;
     padding: 8px 8px;
-    min-width: 80px;
+    min-width: 100px;
     pointer-events: none;
     z-index: 99;
     opacity: 0;
@@ -51,6 +52,22 @@ $tooltip-bg: #404040;
 
   &:hover::after, &:hover::before {
     opacity: 1;
+  }
+
+  &[position='topLeft']::before {
+    left: 15%;
+  }
+
+  &[position='topLeft']::after {
+    left: 25%;
+  }
+
+  &[position='topRight']::before {
+    left: 85%;
+  }
+
+  &[position='topRight']::after {
+    left: 75%;
   }
 }
 </style>
