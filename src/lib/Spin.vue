@@ -1,5 +1,5 @@
 <template>
-  <div class="coco-spin">
+  <div class="coco-spin" :class="classes">
     <div class="coco-spin-dot"></div>
     <div class="coco-spin-dot"></div>
     <div class="coco-spin-dot"></div>
@@ -38,10 +38,33 @@
     <div class="coco-spin-dot"></div>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {computed} from 'vue';
+
+const props = defineProps({
+  size: String
+})
+const classes = computed(() => {
+  return {
+    [`coco-spin-size-${props.size}`]: props.size
+  }
+})
+let containerSize: string = props.size
+let ballSize: string = ''
+if (containerSize === 'large') {
+  containerSize = '150px'
+  ballSize = '10px'
+} else if (containerSize === 'small') {
+  containerSize = '30px'
+  ballSize = '3px'
+} else {
+  containerSize = '50px'
+  ballSize = '4px'
+}
+</script>
 <style lang="scss">
-$containerSize: 20px;
-$ballSize: 2px;
+$containerSize: v-bind(containerSize);
+$ballSize: v-bind(ballSize);
 $n: 36;
 $green: #5FBC90;
 $lightgreen: #afddc7;
@@ -62,7 +85,7 @@ $ani-duration: 2000ms;
   height: $ballSize;
   margin-left: calc(-1 * $ballSize / 2);
   margin-top: calc(-1 * $ballSize / 2);
-  perspective: 10px;
+  perspective: calc($containerSize / 2);
   transform-style: preserve-3d;
 
   &::before, &::after {
