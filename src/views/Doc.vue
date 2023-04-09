@@ -32,6 +32,9 @@
           <li>
             <router-link to="/doc/input-number">InputNumber 数字输入框</router-link>
           </li>
+          <li>
+            <router-link to="/doc/tooltip">Tooltip 文字提示</router-link>
+          </li>
         </ol>
       </aside>
       <main>

@@ -6,6 +6,7 @@ import ButtonDemo from './components/ButtonDemo.vue';
 import DialogDemo from './components/DialogDemo.vue';
 import TabsDemo from './components/TabsDemo.vue';
 import InputNumberDemo from './components/InputNumberDemo.vue';
+import TooltipDemo from './components/TooltipDemo.vue';
 import {h} from 'vue';
 import Markdown from './components/Markdown.vue';
 // @ts-ignore
@@ -33,6 +34,7 @@ export const router = createRouter({
         {path: 'dialog', component: DialogDemo},
         {path: 'tabs', component: TabsDemo},
         {path: 'input-number', component: InputNumberDemo},
+        {path: 'tooltip', component: TooltipDemo},
       ]
     }
   ],

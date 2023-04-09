@@ -1,7 +1,9 @@
 {
   "name": "coco-ui-vue",
   "version": "0.0.3",
-  "files": ["dist/lib/*"],
+  "files": [
+    "dist/lib/*"
+  ],
   "main": "dist/lib/coco.js",
   "scripts": {
     "dev": "vite",
