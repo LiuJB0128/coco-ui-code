@@ -6,6 +6,7 @@
     <Demo :component="Spin1Demo"/>
     <Demo :component="Spin2Demo"/>
     <Demo :component="Spin3Demo"/>
+    <Demo :component="Spin4Demo"/>
   </div>
 </template>
 <script setup lang="ts">
@@ -13,7 +14,7 @@ import Demo from './Demo.vue';
 import Spin1Demo from './Spin1.demo.vue';
 import Spin2Demo from './Spin2.demo.vue';
 import Spin3Demo from './Spin3.demo.vue';
-
+import Spin4Demo from './Spin4.demo.vue';
 </script>
 <style lang="scss" scoped>
 p {

@@ -36,30 +36,32 @@
     <div class="coco-spin-dot"></div>
     <div class="coco-spin-dot"></div>
     <div class="coco-spin-dot"></div>
+    <div class="coco-spin-text" v-if="tip">{{ tip }}</div>
   </div>
 </template>
 <script setup lang="ts">
 import {computed} from 'vue';
 
 const props = defineProps({
-  size: String
-})
+  size: String,
+  tip: String
+});
 const classes = computed(() => {
   return {
     [`coco-spin-size-${props.size}`]: props.size
-  }
-})
-let containerSize: string = props.size
-let ballSize: string = ''
+  };
+});
+let containerSize: string = props.size;
+let ballSize: string = '';
 if (containerSize === 'large') {
-  containerSize = '150px'
-  ballSize = '10px'
+  containerSize = '150px';
+  ballSize = '10px';
 } else if (containerSize === 'small') {
-  containerSize = '30px'
-  ballSize = '3px'
+  containerSize = '30px';
+  ballSize = '3px';
 } else {
-  containerSize = '50px'
-  ballSize = '4px'
+  containerSize = '50px';
+  ballSize = '4px';
 }
 </script>
 <style lang="scss">
@@ -109,6 +111,17 @@ $ani-duration: 2000ms;
   }
 }
 
+.coco-spin-text {
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  margin-top: -50px;
+  color: $green;
+  font-size: 14px;
+  font-weight: 500;
+  transform: translateY(100%) translateX(-50%);
+}
+
 @keyframes moveLightGreen {
   0% {
     animation-timing-function: ease-in;
@@ -148,6 +161,7 @@ $ani-duration: 2000ms;
 @for $i from 1 through $n {
   .coco-spin-dot:nth-child(#{$i}) {
     transform: rotate($pdeg * $i) translateY(calc(-1 * $containerSize / 2));
+
     &::before, &::after {
       animation-delay: calc(-6 * $i * $ani-duration / $n);
     }
