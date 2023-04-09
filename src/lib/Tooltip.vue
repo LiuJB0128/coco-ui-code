@@ -8,11 +8,14 @@ import {defineProps} from 'vue';
 
 const props = defineProps({
   title: String,
-  placement: String
+  placement: String,
+  color: String
 });
+
+const setColor = props.color || '#404040';
 </script>
 <style lang="scss">
-$tooltip-bg: #404040;
+$tooltip-bg: v-bind(setColor);
 .coco-tooltip {
   position: relative;
   display: inline-block;
