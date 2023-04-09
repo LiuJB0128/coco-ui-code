@@ -35,6 +35,9 @@
           <li>
             <router-link to="/doc/tooltip">Tooltip 文字提示</router-link>
           </li>
+          <li>
+            <router-link to="/doc/spin">Spin 加载中</router-link>
+          </li>
         </ol>
       </aside>
       <main>
