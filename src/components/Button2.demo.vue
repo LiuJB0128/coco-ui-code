@@ -6,13 +6,13 @@
   <Button size="big">Default</Button>
   <Button theme="dashed" size="big">Dashed</Button>
 
-  <div style="width: 100%"></div>
+  <div style="width: 100%"/>
 
   <Button theme="primary">Primary</Button>
   <Button>Default</Button>
   <Button theme="dashed">Dashed</Button>
 
-  <div style="width: 100%"></div>
+  <div style="width: 100%"/>
 
   <Button theme="primary" size="small">Primary</Button>
   <Button size="small">Default</Button>

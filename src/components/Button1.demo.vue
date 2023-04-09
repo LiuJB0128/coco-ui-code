@@ -6,7 +6,7 @@
   <Button>Default Button</Button>
   <Button theme="dashed">Dashed Button</Button>
 
-  <div style="width: 100%"></div>
+  <div style="width: 100%"/>
 
   <Button theme="link">Link Button</Button>
   <Button theme="text">Text Button</Button>

@@ -5,12 +5,14 @@
     <h2>代码演示</h2>
     <Demo :component="Tooltip1Demo"/>
     <Demo :component="Tooltip2Demo"/>
+    <Demo :component="Tooltip3Demo"/>
   </div>
 </template>
 <script setup lang="ts">
 import Demo from './Demo.vue';
 import Tooltip1Demo from './Tooltip1.demo.vue';
 import Tooltip2Demo from './Tooltip2.demo.vue';
+import Tooltip3Demo from './Tooltip3.demo.vue';
 </script>
 <style lang="scss" scoped>
 p {

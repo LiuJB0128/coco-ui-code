@@ -5,16 +5,16 @@
   <Button theme="primary" loading>Primary</Button>
   <Button theme="primary" disabled loading>Primary</Button>
 
-  <div style="width: 100%"></div>
+  <div style="width: 100%"/>
 
   <Button :loading="loading" @click="enterLoading">Enter Loading</Button>
 
-  <div style="width: 100%"></div>
+  <div style="width: 100%"/>
 
   <Button theme="dashed" loading></Button>
   <Button theme="dashed" disabled loading></Button>
 
-  <div style="width: 100%"></div>
+  <div style="width: 100%"/>
 
   <Button theme="primary" level="danger" loading>Danger</Button>
   <Button level="danger" loading>Default</Button>

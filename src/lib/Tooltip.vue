@@ -69,5 +69,131 @@ $tooltip-bg: #404040;
   &[position='topRight']::after {
     left: 75%;
   }
+
+  &[position='left']::before {
+    top: 50%;
+    left: 0;
+    margin-left: -15px;
+    transform: translateY(-50%) rotate(-90deg);
+  }
+
+  &[position='left']::after {
+    top: 50%;
+    left: 0;
+    margin-left: -10px;
+    transform: translateY(-50%) translateX(-100%);
+  }
+
+  &[position='leftTop']::before {
+    top: 15%;
+    left: 0;
+    margin-left: -15px;
+    transform: translateY(-50%) rotate(-90deg);
+  }
+
+  &[position='leftTop']::after {
+    top: 25%;
+    left: 0;
+    margin-left: -10px;
+    transform: translateY(-50%) translateX(-100%);
+  }
+
+  &[position='leftBottom']::before {
+    top: 85%;
+    left: 0;
+    margin-left: -15px;
+    transform: translateY(-50%) rotate(-90deg);
+  }
+
+  &[position='leftBottom']::after {
+    top: 75%;
+    left: 0;
+    margin-left: -10px;
+    transform: translateY(-50%) translateX(-100%);
+  }
+
+  &[position='right']::before {
+    top: 50%;
+    left: 100%;
+    margin-left: 3px;
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  &[position='right']::after {
+    top: 50%;
+    left: 100%;
+    margin-left: 10px;
+    transform: translateY(-50%);
+  }
+
+  &[position='rightTop']::before {
+    top: 15%;
+    left: 100%;
+    margin-left: 3px;
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  &[position='rightTop']::after {
+    top: 25%;
+    left: 100%;
+    margin-left: 10px;
+    transform: translateY(-50%);
+  }
+
+  &[position='rightBottom']::before {
+    top: 85%;
+    left: 100%;
+    margin-left: 3px;
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  &[position='rightBottom']::after {
+    top: 75%;
+    left: 100%;
+    margin-left: 10px;
+    transform: translateY(-50%);
+  }
+
+  &[position='bottom']::before {
+    top: 100%;
+    left: 50%;
+    margin-top: 5px;
+    transform: translatex(-50%) rotate(180deg);
+  }
+
+  &[position='bottom']::after {
+    top: 100%;
+    left: 50%;
+    margin-top: 8px;
+    transform: translatex(-50%);
+  }
+
+  &[position='bottomLeft']::before {
+    top: 100%;
+    left: 15%;
+    margin-top: 5px;
+    transform: translatex(-50%) rotate(180deg);
+  }
+
+  &[position='bottomLeft']::after {
+    top: 100%;
+    left: 25%;
+    margin-top: 8px;
+    transform: translatex(-50%);
+  }
+
+  &[position='bottomRight']::before {
+    top: 100%;
+    left: 85%;
+    margin-top: 5px;
+    transform: translatex(-50%) rotate(180deg);
+  }
+
+  &[position='bottomRight']::after {
+    top: 100%;
+    left: 75%;
+    margin-top: 8px;
+    transform: translatex(-50%);
+  }
 }
 </style>
